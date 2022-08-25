@@ -12,7 +12,7 @@ app.layout = html.Div([
     dcc.Graph(id="graph"),
     dcc.Checklist(
         id="checklist",
-        options=["north", "east", "south","west"],
+        options=["north", "east", "south","west","all"],
         value=[],
         inline=True
     ),
@@ -38,6 +38,11 @@ def display_graph(n_clicks, value):
         x, y = 'time', 'sales'
     else:
         x, y = 'sales', 'time'
+
+    if("all" in value):
+        fig = px.line(df, 
+        x=x, y=y, color='region', title="sales of pink morsel by region over time")
+        return fig
 
 
     mask = df.region.isin(value)
