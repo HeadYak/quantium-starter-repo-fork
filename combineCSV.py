@@ -11,7 +11,12 @@ dir = stream.read().strip()
 
 combinedSales =  open(dir+'/combinedSalesData.csv', mode='w')
 
+
 salesWriter = csv.writer(combinedSales, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+
+salesWriter.writerow(['sales','time', 'region'])
+
 for filename in os.listdir(directory):
 
     filePath = dir+'/'+directory+'/'+filename
