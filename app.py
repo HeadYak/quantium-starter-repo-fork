@@ -6,7 +6,7 @@ import pandas as pd
 app = Dash(__name__)
 
 app.layout = html.Div([
-    html.H4('Simple stock plot with adjustable axis'),
+    html.H4('Simple stock plot with adjustable axis', id='header'),
     html.Button("Switch Axis", n_clicks=0, 
                 id='button'),
     dcc.Graph(id="graph"),
